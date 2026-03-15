@@ -1,13 +1,13 @@
-name: Quote Generator CI/CD Pipeline
+name: Quote Generator Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -26,22 +26,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: test
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Deploy
-        run: |
-          echo "✅ Tests passed!"
-          echo "🚀 Deploying Quote Generator..."
-          echo "🎉 Application is Live!"
-```
-
----
-
-## Step 3 — Save File
-```
-Press Ctrl+X
-Then Y
-Then Enter
+        run: echo "Deployed successfully!"
